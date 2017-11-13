@@ -1,0 +1,7 @@
+version: '2'
+services:
+  wallet:
+    image: juanluisbaptiste/xpra-base:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
