@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#Read env variables set by derived containers.
+if [ -f .envrc ]; then
+  . .envrc
+fi
+
 if [ "${DEBUG}" == "yes" ]; then
   env
   set -x
