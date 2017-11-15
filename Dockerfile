@@ -12,8 +12,7 @@ RUN apt-get update && \
     add-apt-repository universe && \
     apt-get update && \
     apt-get install -y xpra xvfb && \
-    apt-get clean
-    #rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && \
     useradd -ms /bin/bash -G xpra user
 COPY entrypoint.sh /
 EXPOSE 10000
