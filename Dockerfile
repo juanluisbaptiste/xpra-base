@@ -4,8 +4,8 @@ ENV DISPLAY=:100
 ENV WEB_VIEW_PORT 10000
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update
-RUN apt-get install -y wget && \
+RUN apt-get update && \
+    apt-get install -y wget && \
     wget -O - http://winswitch.org/gpg.asc | apt-key add - && \
     echo "deb http://winswitch.org/ artful main" > /etc/apt/sources.list.d/xpra.list && \
     apt-get install -y software-properties-common && \
