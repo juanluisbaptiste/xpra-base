@@ -14,5 +14,6 @@ RUN apt-get update && \
     apt-get install -y xpra xvfb && \
     apt-get clean
     #rm -rf /var/lib/apt/lists/* && \
+    useradd -ms /bin/bash -G xpra user
 COPY entrypoint.sh /
 EXPOSE 10000
