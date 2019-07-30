@@ -24,8 +24,9 @@ if [ "${ENABLE_WEB_VIEW}" == "yes" ]; then
     ${XPRA}
   else
     #Credentials have been provided so create password file and link to it
-    echo -n "${XPRA_USER}|${XPRA_PASS}" > ./credentials.txt
-    XPRA="${XPRA} --auth=multifile:filename=./credentials.txt"
+    python /usr/lib/python2.7/dist-packages/xpra/server/auth/sqlite_auth.py ./auth.sdb create
+    python /usr/lib/python2.7/dist-packages/xpra/server/auth/sqlite_auth.py ./auth.sdb add ${XPRA_USER} ${XPRA_PASS}
+    XPRA="${XPRA} --auth=sqlite:filename=./auth.sdb --ws-auth=sqlite:filename=./auth.sdb --tcp-auth=sqlite:filename=./auth.sdb"
     ${XPRA}
   fi
 
