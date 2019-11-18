@@ -1,13 +1,13 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 MAINTAINER Juan Luis Baptiste <juan.baptiste@gmail.com>
 ENV DISPLAY=:100
 ENV WEB_VIEW_PORT 10000
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
-    apt-get install -y wget && \
+    apt-get install -y wget gnupg gnupg2 gnupg1 && \
     wget -O - http://winswitch.org/gpg.asc | apt-key add - && \
-    echo "deb http://winswitch.org/ xenial  main" > /etc/apt/sources.list.d/xpra.list && \
+    echo "deb http://winswitch.org/ bionic  main" > /etc/apt/sources.list.d/xpra.list && \
     apt-get install -y software-properties-common && \
     add-apt-repository universe && \
     apt-get update && \
