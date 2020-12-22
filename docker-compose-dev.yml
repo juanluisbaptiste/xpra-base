@@ -1,7 +1,7 @@
 version: '3'
 services:
   wallet:
-    image: juanluisbaptiste/xpra-base:latest
+    image: gentoorax/xpra-base:latest
     build:
       context: .
       dockerfile: Dockerfile
