@@ -1,5 +1,5 @@
 FROM ubuntu:focal
-MAINTAINER Juan Luis Baptiste <juan.baptiste@gmail.com>
+LABEL maintainer="juan.baptiste@gmail.com"
 ENV DISPLAY=:100
 ENV WEB_VIEW_PORT 10000
 ENV DEBIAN_FRONTEND noninteractive
