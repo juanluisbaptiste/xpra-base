@@ -24,9 +24,9 @@ if [ "${ENABLE_WEB_VIEW}" == "yes" ]; then
     ${XPRA}
   else
     #Credentials have been provided so create password file and link to it
-    python /usr/lib/python2.7/dist-packages/xpra/server/auth/sqlite_auth.py ./auth.sdb create
-    python /usr/lib/python2.7/dist-packages/xpra/server/auth/sqlite_auth.py ./auth.sdb add ${XPRA_USER} ${XPRA_PASSWORD}
-    XPRA="${XPRA} --auth=sqlite:filename=./auth.sdb --ws-auth=sqlite:filename=./auth.sdb --tcp-auth=sqlite:filename=./auth.sdb"
+    python3 /usr/lib/python3/dist-packages/xpra/server/auth/sqlite_auth.py /home/user/auth.sdb create
+    python3 /usr/lib/python3/dist-packages/xpra/server/auth/sqlite_auth.py /home/user/auth.sdb add ${XPRA_USER} ${XPRA_PASSWORD}
+    XPRA="${XPRA} --auth=sqlite:filename=/home/user/auth.sdb --ws-auth=sqlite:filename=/home/user/auth.sdb --tcp-auth=sqlite:filename=/home/user/auth.sdb"
     ${XPRA}
   fi
 
